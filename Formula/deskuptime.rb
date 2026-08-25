@@ -1,5 +1,5 @@
 class Deskuptime < Formula
-  desc "Website uptime monitor CLI — uptime, SSL expiry & content change checks from your terminal or CI"
+  desc "Website uptime monitor CLI: uptime, SSL expiry and content checks"
   homepage "https://github.com/mahope/deskuptime"
   url "https://github.com/mahope/deskuptime/archive/refs/tags/v0.1.2.tar.gz"
   version "0.1.2"
