@@ -1,16 +1,16 @@
 class Deskuptime < Formula
   desc "Website uptime monitor CLI: uptime, SSL expiry and content checks"
   homepage "https://github.com/mahope/deskuptime"
-  url "https://github.com/mahope/deskuptime/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "d240b6c1aa2c6da30c0ee92d42f90d66c6ff44de5efb8c5d9a93650ce0e49f9b"
+  url "https://github.com/mahope/deskuptime/releases/download/v0.1.2-cli/deskuptime-0.1.2.tar.gz"
+  version "0.1.2"
+  sha256 "7da4708889df9f65093247ebfcad65e182af0f4944b9bdd5874eb325ec9deaaf"
   license "MIT"
 
   depends_on "node"
 
   def install
-    (libexec/"src").install Dir["src/*.js"]
     (libexec/"src/checkers").install Dir["src/checkers/*.js"]
-    libexec.install "package.json", "LICENSE", "README.md"
+    libexec.install Dir["src/*.js"], "package.json", "LICENSE", "README.md"
     chmod 0555, libexec/"src/cli.js"
     (bin/"deskuptime").write <<~RUBY
       #!/usr/bin/env bash
