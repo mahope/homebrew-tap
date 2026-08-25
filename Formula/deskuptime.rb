@@ -9,9 +9,14 @@ class Deskuptime < Formula
   depends_on "node"
 
   def install
-    libexec.install "src", "package.json", "LICENSE", "README.md"
-    bin.write_exec_script(libexec/"src/cli.js")
-    mv(bin/"cli.js", bin/"deskuptime")
+    (libexec/"src").install Dir["src/*.js"]
+    (libexec/"src/checkers").install Dir["src/checkers/*.js"]
+    libexec.install "package.json", "LICENSE", "README.md"
+    chmod 0555, libexec/"src/cli.js"
+    (bin/"deskuptime").write <<~RUBY
+      #!/usr/bin/env bash
+      exec node #{libexec}/src/cli.js "$@"
+    RUBY
   end
 
   test do
