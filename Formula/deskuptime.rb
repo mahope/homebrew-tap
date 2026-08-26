@@ -2,7 +2,6 @@ class Deskuptime < Formula
   desc "Website uptime monitor CLI: uptime, SSL expiry and content checks"
   homepage "https://github.com/mahope/deskuptime"
   url "https://github.com/mahope/deskuptime/releases/download/v0.1.4-cli/deskuptime-0.1.4.tar.gz"
-  version "0.1.4"
   sha256 "f517d5134d404b9c6d47eb4514e17c05ae5db73456e826b022bb41ef4bd80d0c"
   license "MIT"
 
